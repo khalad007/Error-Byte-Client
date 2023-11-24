@@ -1,5 +1,5 @@
 import login from "../../assets/login.jpg"
-
+// import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { AuthContext } from "../../Provider/AuthProvider";
@@ -15,9 +15,6 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-
- 
-
     const handleLogin = e => {
         e.preventDefault()
 
@@ -26,19 +23,19 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
-        signIn(email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-                swal("Good job!", "You clicked the button!", "success");
-                navigate(from, { replace: true })
-            })
+        // signIn(email, password)
+        //     .then(result => {
+        //         const user = result.user;
+        //         console.log(user)
+        //         swal("Good job!", "You clicked the button!", "success");
+        //         navigate(from, { replace: true })
+        //     })
     }
 
 
     return (
-        <div className="hero min-h-screen " > 
-        {/* style={backgroundImageStyle} */}
+        <div className="hero min-h-screen " >
+            {/* style={backgroundImageStyle} */}
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center w-1/2 lg:text-left">
                     <img src={login} alt="" />
@@ -60,14 +57,23 @@ const Login = () => {
                         </div>
 
 
-                
+                        {/* <div className="form-control">
+                            <label className="label">
+                                <LoadCanvasTemplate />
+                            </label>
+                            <input type="text" ref={captchaRef} placeholder="Type captcha above" name="captcha" className="input input-bordered" required />
+                            <button onClick={handleValidateCaptcha} className="btn btn-xs">Validate</button>
+                        </div> */}
 
-                        <div className="form-control mt-6">
-                            <input className="btn bg-[#d8b682] text-white" type="submit" value="Login" />
+
+                        <div className="form-control mt-5">
+                            <input className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] border-0 mt-11 lg:m-8 text-white" type="submit" value="Login" />
                         </div>
-                        <Link to="/register"><p className="font-bold text-sm text-[#d8b682] text-center">New here? Create a New Account</p></Link>
+
+                        <Link to="/register"><p className="font-bold text-sm text-[#0155B7] text-center">New here? Create a New Account</p></Link>
                         <div className="divider">
                             <p className="font-medium text-sm text-center">or sign in with</p></div>
+                        {/* <SocialLogin></SocialLogin> */}
                     </form>
                 </div>
             </div>

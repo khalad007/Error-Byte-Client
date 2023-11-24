@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-
+// import swal from "sweetalert";
+// import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
-    
-    const {createuser, updateUserProfile} = useContext(AuthContext);
+    // const axiosPublic = useAxiosPublic();
+    const { createuser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const {
@@ -26,7 +27,21 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         console.log('user info')
-                       
+                        
+                        //create user in db (new user)
+                        // const userInfo = {
+                        //     name: data.name,
+                        //     email: data.email
+                        // }
+                        // axiosPublic.post('/users', userInfo)
+                        //     .then(res => {
+                        //         if (res.data.insertedId) {
+                        //             console.log('add on db the new user')
+                        //             reset();
+                        //             swal("Good job!", "Registration Successful!", "success");
+                        //             navigate('/')
+                        //         }
+                        //     })
 
 
                     })
@@ -74,10 +89,6 @@ const Register = () => {
                             {errors.password && <span className="text-red-700">This field is required</span>}
 
                         </div>
-
-
-                        
-
 
                         <div className="form-control mt-6">
                             <input className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white" type="submit" value="Register" />

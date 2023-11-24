@@ -9,11 +9,11 @@ const Navbar2 = () => {
 
                 </div>
                 <div className="navbar-center">
-                    <button className="btn btn-ghost border-b-4 hover:border-b-[#84D9FE]"><Link to="/">Home</Link></button>
+                <Link to="/"><button className="btn btn-ghost border-b-4 hover:border-b-[#84D9FE]">Home</button></Link>
 
-                    <button className="btn btn-ghost border-b-4 hover:border-b-[#84D9FE]"><Link to="/allClasses">All Classes</Link></button>
+                <Link to="/allClasses"><button className="btn btn-ghost border-b-4 hover:border-b-[#84D9FE]">All Classes</button></Link>
 
-                    <button className="btn btn-ghost border-b-4 hover:border-b-[#84D9FE]"> <Link to="/techOnErrByte">Tech on ErrByte</Link></button>
+                <Link to="/techOnErrByte"><button className="btn btn-ghost border-b-4 hover:border-b-[#84D9FE]">Tech on ErrByte</button></Link>
                 </div>
                 <div className="navbar-end">
 

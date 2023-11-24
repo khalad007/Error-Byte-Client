@@ -1,15 +1,16 @@
+import { useContext } from "react";
 import login from "../../assets/login.jpg"
-// import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { useContext, useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { useContext } from "react";
 // import { AuthContext } from "../../Provider/AuthProvider";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { AuthContext } from "../../Providers/AuthProvider";
 // import SocialLogin from "../../Component/SocialLogin/SocialLogin";
 const Login = () => {
-    const captchaRef = useRef(null);
+  
 
     // const [disabled, setDisabled] = useState(true);
-    // const { signIn } = useContext(AuthContext)
+    const { signIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -23,13 +24,13 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
-        // signIn(email, password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user)
-        //         swal("Good job!", "You clicked the button!", "success");
-        //         navigate(from, { replace: true })
-        //     })
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                swal("Good job!", "You clicked the button!", "success");
+                navigate(from, { replace: true })
+            })
     }
 
 
@@ -55,16 +56,6 @@ const Login = () => {
                             <input type="password" placeholder="password" name="password" className="input input-bordered" required />
 
                         </div>
-
-
-                        {/* <div className="form-control">
-                            <label className="label">
-                                <LoadCanvasTemplate />
-                            </label>
-                            <input type="text" ref={captchaRef} placeholder="Type captcha above" name="captcha" className="input input-bordered" required />
-                            <button onClick={handleValidateCaptcha} className="btn btn-xs">Validate</button>
-                        </div> */}
-
 
                         <div className="form-control mt-5">
                             <input className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] border-0 mt-11 lg:m-8 text-white" type="submit" value="Login" />

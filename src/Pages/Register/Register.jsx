@@ -1,22 +1,19 @@
-import login from "../../assets/others/authentication2.png"
-import loginbg from "../../assets/others/authentication.png"
+import login from "../../assets/registration.jpg"
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import swal from "sweetalert";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 
 const Register = () => {
-    const axiosPublic = useAxiosPublic();
-    const { createuser, updateUserProfile } = useContext(AuthContext);
+    
+    const {createuser, updateUserProfile} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const {
         register,
         handleSubmit,
         reset,
-        watch,
         formState: { errors },
     } = useForm()
 
@@ -29,20 +26,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         console.log('user info')
-                        //create user in db (new user)
-                        const userInfo = {
-                            name: data.name,
-                            email: data.email
-                        }
-                        axiosPublic.post('/users', userInfo)
-                            .then(res => {
-                                if (res.data.insertedId) {
-                                    console.log('add on db the new user')
-                                    reset();
-                                    swal("Good job!", "Registration Successful!", "success");
-                                    navigate('/')
-                                }
-                            })
+                       
 
 
                     })
@@ -50,14 +34,9 @@ const Register = () => {
             })
     }
 
-    const backgroundImageStyle = {
-        backgroundImage: `url(${loginbg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-    };
 
     return (
-        <div className="hero min-h-screen " style={backgroundImageStyle}>
+        <div className="hero min-h-screen " >
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center w-1/2 lg:text-left">
                     <img src={login} alt="" />
@@ -97,19 +76,13 @@ const Register = () => {
                         </div>
 
 
-                        {/* <div className="form-control">
-                            <label className="label">
-                                <LoadCanvasTemplate />
-                            </label>
-                            <input type="text" ref={captchaRef} placeholder="Type captcha above" name="captcha" className="input input-bordered" required />
-                            <button onClick={handleValidateCaptcha} className="btn btn-xs">Validate</button>
-                        </div> */}
+                        
 
 
                         <div className="form-control mt-6">
-                            <input className="btn bg-[#d8b682] text-white" type="submit" value="Register" />
+                            <input className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white" type="submit" value="Register" />
                         </div>
-                        <Link to="/login"> <p className="font-bold text-sm text-[#d8b682] text-center">Already registered? Go to log in</p></Link>
+                        <Link to="/login"> <p className="font-bold text-sm text-[#0155B7] text-center">Already registered? Go to log in</p></Link>
                         <p className="font-medium text-sm text-center">or sign up with</p>
                     </form>
                 </div>

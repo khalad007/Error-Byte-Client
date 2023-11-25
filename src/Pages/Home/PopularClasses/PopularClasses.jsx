@@ -28,7 +28,8 @@ const PopularClasses = () => {
                 className="mySwiper mb-16"
             >
                 {
-                    classes.map(classs => <SwiperSlide key={classs._id}><img src={classs.Image} alt="" /> <h3 className='text-2xl  text-center'>{classs.Title}
+                    classes.map(classs => <SwiperSlide key={classs._id}><img src={classs.Image} alt="" /> 
+                    <h3 className='text-2xl  text-center'>{classs.Title}
                     </h3></SwiperSlide>)
                 }
             </Swiper>

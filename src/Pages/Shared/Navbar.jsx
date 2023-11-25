@@ -51,7 +51,7 @@ const Navbar = () => {
                                         <h1>{user.displayName}</h1>
                                     </p>
                                 </li>
-                                <li><a>Dashboard</a></li>
+                                <Link to="dashboard">Dashboard</Link>
                                 {
                                     user ? <Link onClick={handleLogOut} className="btn bg-[#E90000] text-white">Logout</Link> :
 

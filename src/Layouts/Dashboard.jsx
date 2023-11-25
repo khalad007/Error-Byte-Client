@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-
+import logo from "../assets/logofordashboard.png"
 import { FaBook, FaCalendarMinus, FaCartShopping, FaHouse, FaList, FaMoneyBillTransfer, FaRankingStar, FaUsers, FaUtensils } from "react-icons/fa6";
 // import useAdmin from "../Hooks/useAdmin";
 // import {  MdPayments } from "react-icons/md";
@@ -12,7 +12,9 @@ const Dashboard = () => {
                 <ul className="menu ">
                     {
                         isAdmin ? <>
-                            <h1 className="font-extrabold text-2xl text-center ">BISTROBOSS <br /><span className="font-bold text-lg">Restaurant</span></h1>
+                        <div className="flex justify-center items-center">
+                        <img className="w-36" src={logo} alt="" />
+                        </div>
                             <span className="text-center mt-6 font-bold">Admin Options </span>
                             <div className="divider"></div>
                             <li><NavLink to="/dashboard/adminHome" ><FaHouse /> Admin Home</NavLink></li>

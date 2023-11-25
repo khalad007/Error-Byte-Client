@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Layouts/Dashboard";
 import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
+import Review from "../Pages/Dashboard/Review/Review";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: 'studentHome',
                 element: <StudentHome></StudentHome>
+            },
+            {
+                path: 'review',
+                element: <Review></Review>
             }
         ]
     }

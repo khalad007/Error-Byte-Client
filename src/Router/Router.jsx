@@ -12,6 +12,7 @@ import Review from "../Pages/Dashboard/Review/Review";
 import TechOnErrByte from "../Pages/Home/TechOnErrByte/TechOnErrByte";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import SingleClass from "../Pages/AllClasses/SingleClass";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             {
                 path: 'review',
                 element: <Review></Review>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             }
         ]
     }

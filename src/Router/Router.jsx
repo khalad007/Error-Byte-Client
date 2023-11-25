@@ -10,6 +10,7 @@ import Dashboard from "../Layouts/Dashboard";
 import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
 import Review from "../Pages/Dashboard/Review/Review";
 import TechOnErrByte from "../Pages/Home/TechOnErrByte/TechOnErrByte";
+import AllClasses from "../Pages/AllClasses/AllClasses";
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
             {
                 path: 'techOnErrByte',
                 element: <TechOnErrByte></TechOnErrByte>
+            },
+            {
+                path: 'allClasses',
+                element: <AllClasses></AllClasses>
             }
         ]
     },

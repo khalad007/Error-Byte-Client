@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-// import swal from "sweetalert";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import swal from "sweetalert";
 // import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
-    // const axiosPublic = useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
     const { createuser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -27,21 +28,20 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         console.log('user info')
-                        
                         //create user in db (new user)
-                        // const userInfo = {
-                        //     name: data.name,
-                        //     email: data.email
-                        // }
-                        // axiosPublic.post('/users', userInfo)
-                        //     .then(res => {
-                        //         if (res.data.insertedId) {
-                        //             console.log('add on db the new user')
-                        //             reset();
-                        //             swal("Good job!", "Registration Successful!", "success");
-                        //             navigate('/')
-                        //         }
-                        //     })
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('add on db the new user')
+                                    reset();
+                                    swal("Good job!", "Registration Successful!", "success");
+                                    navigate('/')
+                                }
+                            })
 
 
                     })

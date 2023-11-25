@@ -7,6 +7,7 @@ import Error from "../Pages/Error/Error";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Layouts/Dashboard";
+import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
 
 export const router = createBrowserRouter([
     {
@@ -34,7 +35,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: 'studentHome',
-                element: 
+                element: <StudentHome></StudentHome>
             }
         ]
     }

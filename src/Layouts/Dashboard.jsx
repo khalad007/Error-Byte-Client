@@ -8,7 +8,7 @@ const Dashboard = () => {
     const isAdmin = true;
     return (
         <div className="flex">
-            <div className="w-60 min-h-full bg-[#D1A054]">
+            <div className="w-60 min-h-full bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">
                 <ul className="menu ">
                     {
                         isAdmin ? <>
@@ -24,7 +24,7 @@ const Dashboard = () => {
                             <span className="text-center mt-6 font-bold">User Options</span>
                             <div className="divider"></div>
 
-                            <li><NavLink to="/dashboard/userHome" ><FaHouse /> User Home</NavLink></li>
+                            <li><NavLink to="/dashboard/studentHome" ><FaHouse /> User Home</NavLink></li>
                             <li><NavLink to="/dashboard/cart"><FaCartShopping></FaCartShopping> My cart</NavLink></li>
                             <li><NavLink to="/dashboard/review"><FaRankingStar /> Review</NavLink></li>
                             <li><NavLink to="/dashboard/paymentHistory"><FaCalendarMinus /> Payment History</NavLink></li>
@@ -33,7 +33,7 @@ const Dashboard = () => {
                         </>
                             :
                             <>
-                                <li><NavLink to="/dashboard/userHome" ><FaHouse /> User Home</NavLink></li>
+                                <li><NavLink to="/dashboard/studentHome" ><FaHouse /> User Home</NavLink></li>
                                 <li><NavLink to="/dashboard/cart"><FaCartShopping></FaCartShopping> My cart</NavLink></li>
                                 <li><NavLink to="/dashboard/review"><FaRankingStar /> Review</NavLink></li>
                                 <li><NavLink to="/dashboard/paymentHistory"><FaMoneyBillTransfer /> Payment History</NavLink></li>
@@ -43,7 +43,7 @@ const Dashboard = () => {
                     }
                     {/* shared                       */}
                     <div className="divider"></div>
-                    <li><NavLink to="/">Home</NavLink></li>
+                    <li className="my-10"><NavLink to="/">Home</NavLink></li>
                 </ul>
 
             </div>

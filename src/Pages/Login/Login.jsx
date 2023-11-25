@@ -5,6 +5,7 @@ import login from "../../assets/login.jpg"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Providers/AuthProvider";
+import SocialLogin from "../../Comonent/SocialLogin";
 // import SocialLogin from "../../Component/SocialLogin/SocialLogin";
 const Login = () => {
   
@@ -66,7 +67,7 @@ const Login = () => {
                         <Link to="/register"><p className="font-bold text-sm text-[#0155B7] text-center">New here? Create a New Account</p></Link>
                         <div className="divider">
                             <p className="font-medium text-sm text-center">or sign in with</p></div>
-                        {/* <SocialLogin></SocialLogin> */}
+                        <SocialLogin></SocialLogin>
                     </form>
                 </div>
             </div>

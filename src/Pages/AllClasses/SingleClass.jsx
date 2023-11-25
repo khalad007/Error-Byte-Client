@@ -2,6 +2,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import swal from "sweetalert";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useCart from "../../Hooks/useCart";
 
 
 
@@ -13,6 +14,7 @@ const SingleClass = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
+    const [ , refetch] = useCart();
 
     // console.log(user.email)
     const handleAddToCart = cls => {
@@ -38,6 +40,7 @@ const SingleClass = () => {
                             button: "Aww yiss!",
                             timer: 1500
                         });
+                        refetch();
                     }
                 })
         }

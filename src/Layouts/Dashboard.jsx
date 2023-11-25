@@ -8,7 +8,7 @@ const Dashboard = () => {
     const isAdmin = true;
     return (
         <div className="flex">
-            <div className="w-60 min-h-full bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">
+            <div className="w-60 min-h-screen bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">
                 <ul className="menu ">
                     {
                         isAdmin ? <>

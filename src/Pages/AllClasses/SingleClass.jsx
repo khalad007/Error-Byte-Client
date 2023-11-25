@@ -71,10 +71,10 @@ const SingleClass = () => {
                 <div>
                     <h1 className="text-5xl font-bold mb-5">{Title}</h1>
                     {/* Food quantity */}
-                    <p className="text-sm mb-5 text-gray-500 mt-2">Serves <span className="font-bold">{Price}</span> people</p>
+                    <p className="text-sm mb-5 ml-2 text-gray-500 mt-2">Price : <span className="font-bold">{Price}</span></p>
 
                     <div className="flex items-center mt-2 mb-5">
-                        <p className="ml-2 text-sm font-bold mr-4">Donor: {Name}</p>
+                        <p className="ml-2 text-sm font-bold mr-4">Posted : {Name}</p>
                         {/* <img className="w-20 mask mask-squircle" src={Image} alt="Donator Image" /> */}
                     </div>
 
@@ -84,7 +84,7 @@ const SingleClass = () => {
                         className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Add Cart</button>
 
                     <div className="mt-5">
-                        <p>Note: For Payment Confirm go to --</p> <Link> <button className="btn">My Cart</button></Link>
+                        <p>Note: For Payment Confirm go to --</p> <Link to="/dashboard/cart"> <button className="btn">My Cart</button></Link>
                     </div>
                 </div>
             </div>

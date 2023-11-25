@@ -13,6 +13,7 @@ import TechOnErrByte from "../Pages/Home/TechOnErrByte/TechOnErrByte";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import SingleClass from "../Pages/AllClasses/SingleClass";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import Cart from "../Pages/Dashboard/Cart/Cart";
 
 export const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
             {
                 path: 'payment',
                 element: <Payment></Payment>
+            },
+            {
+                path: 'cart',
+                element: <Cart></Cart>
             }
         ]
     }

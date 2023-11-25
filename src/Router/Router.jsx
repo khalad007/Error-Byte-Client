@@ -11,6 +11,7 @@ import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
 import Review from "../Pages/Dashboard/Review/Review";
 import TechOnErrByte from "../Pages/Home/TechOnErrByte/TechOnErrByte";
 import AllClasses from "../Pages/AllClasses/AllClasses";
+import SingleClass from "../Pages/AllClasses/SingleClass";
 
 export const router = createBrowserRouter([
     {
@@ -37,7 +38,12 @@ export const router = createBrowserRouter([
             {
                 path: 'allClasses',
                 element: <AllClasses></AllClasses>
-            }
+            },
+            {
+                path: '/singleClassDetails/:id',
+                element: <SingleClass></SingleClass>,
+                loader: ({ params }) => fetch(`http://localhost:5000/allClasses/${params.id}`)
+            },
         ]
     },
     {

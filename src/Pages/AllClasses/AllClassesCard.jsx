@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AllClassesCard = ({ classes }) => {
 
@@ -15,7 +16,10 @@ const AllClassesCard = ({ classes }) => {
                 <p className='text-sm mt-2'>Description : <span className='font-bold'>{ShortDescription}</span></p>
                 <p className='text-sm mt-2'>Price : <span className='font-bold'>$ {Price}</span></p>
                 <div className="card-actions justify-end">
-                    <button className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Enroll</button>
+                    <Link to={`/singleClassDetails/${_id}`}>
+                        <button className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Enroll</button>
+                    </Link>
+
                 </div>
             </div>
         </div>

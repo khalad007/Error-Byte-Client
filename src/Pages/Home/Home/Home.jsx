@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import BecameTeacher from "../BecameTeacher/BecameTeacher";
 import Collaborators from "../Collaborators/Collaborators";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import Review2 from "../Review2/Review2";
@@ -11,8 +12,15 @@ const Home = () => {
             <Banner></Banner>
             <Collaborators></Collaborators>
             <PopularClasses></PopularClasses>
-            <Stats></Stats>
-            <Review2></Review2>
+            <div className="mb-[340px] lg:mb-0">
+                <Stats></Stats>
+            </div>
+            <div className="mb-72 lg:mb-0">
+                <BecameTeacher></BecameTeacher>
+            </div>
+            <div>
+                <Review2></Review2>
+            </div>
         </div>
     );
 };

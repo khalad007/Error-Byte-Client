@@ -18,9 +18,8 @@ const Dashboard = () => {
                             <span className="text-center mt-6 font-bold">Admin Options </span>
                             <div className="divider"></div>
                             <li><NavLink to="/dashboard/adminHome" ><FaHouse /> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/addItems"><FaUtensils /> Add Item's </NavLink></li>
-                            <li><NavLink to="/dashboard/manageItem"><FaList></FaList> Manage Item</NavLink></li>
-                            <li><NavLink to="/dashboard/bookings"><FaBook /> Manage Bookings</NavLink></li>
+                            <li><NavLink to="/dashboard/teacherRequest"><FaList></FaList> Teacher Request </NavLink></li>
+                            <li><NavLink to="/dashboard/allClasses"><FaBook /> All Classes</NavLink></li>
                             <li><NavLink to="/dashboard/users"><FaUsers /> All User's</NavLink></li>
 
                             <span className="text-center mt-6 font-bold">User Options</span>

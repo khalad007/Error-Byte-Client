@@ -1,20 +1,21 @@
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logofordashboard.png"
 import { FaBook, FaCalendarMinus, FaCartShopping, FaHouse, FaList, FaMoneyBillTransfer, FaRankingStar, FaUsers, FaUtensils } from "react-icons/fa6";
+import useAdmin from "../Hooks/useAdmin";
 // import useAdmin from "../Hooks/useAdmin";
-// import {  MdPayments } from "react-icons/md";
+import { MdPayments } from "react-icons/md";
 const Dashboard = () => {
 
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div className="flex">
             <div className="w-60 min-h-screen bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">
                 <ul className="menu ">
                     {
                         isAdmin ? <>
-                        <div className="flex justify-center items-center">
-                        <img className="w-36" src={logo} alt="" />
-                        </div>
+                            <div className="flex justify-center items-center">
+                                <img className="w-36" src={logo} alt="" />
+                            </div>
                             <span className="text-center mt-6 font-bold">Admin Options </span>
                             <div className="divider"></div>
                             <li><NavLink to="/dashboard/adminHome" ><FaHouse /> Admin Home</NavLink></li>
@@ -34,6 +35,9 @@ const Dashboard = () => {
                         </>
                             :
                             <>
+                                <span className="text-center mt-6 font-bold">User Options</span>
+                                <div className="divider"></div>
+                                
                                 <li><NavLink to="/dashboard/studentHome" ><FaHouse /> User Home</NavLink></li>
                                 <li><NavLink to="/dashboard/cart"><FaCartShopping></FaCartShopping> My cart</NavLink></li>
                                 <li><NavLink to="/dashboard/review"><FaRankingStar /> Review</NavLink></li>

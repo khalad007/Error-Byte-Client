@@ -43,7 +43,7 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/review"><FaRankingStar /> Review</NavLink></li>
                                 <li><NavLink to="/dashboard/paymentHistory"><FaMoneyBillTransfer /> Payment History</NavLink></li>
                                 <li><NavLink to="/dashboard/payment"><MdPayments /> Payment</NavLink></li>
-                                <li><NavLink to="/dashboard/booking"><FaBook /> My Bookings</NavLink></li>
+                                <li><NavLink to="/dashboard/enrollClass"><FaBook /> My Enroll Class</NavLink></li>
                             </>
                     }
                     {/* shared                       */}

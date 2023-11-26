@@ -1,25 +1,32 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React from 'react';
-import { useState } from 'react';
-import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-import useCart from '../../../Hooks/useCart';
-import { useEffect } from 'react';
-import useAuth from '../../../Hooks/useAuth';
+
+
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useCart from "../../../Hooks/useCart";
+import useAuth from "../../../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
-    const stripe = useStripe();
+    const stripe = useStripe ();
     const elements = useElements();
     const { user } = useAuth();
+    const navigate = useNavigate();
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTranssactionId] = useState('');
     const axiosSecure = useAxiosSecure();
     const [cart] = useCart();
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0)
+    const totalPrice = cart.reduce((total, item) => total + item.Price, 0)
+    console.log(totalPrice)
+    // const cT = cart.map(item => item.Title)
+    // const cN = cart.map(item => item.Name)
+    // const cI = cart.map(item => item.Image)
+    // console.log(cI,cT,cN)
 
     useEffect(() => {
         if (totalPrice > 0) {
-            axiosSecure.post('/create-payment-intent', { price: totalPrice })
+            axiosSecure.post('/create-payment-intent', { Price : totalPrice })
                 .then(res => {
                     console.log(res.data.clientSecret)
                     setClientSecret(res.data.clientSecret);
@@ -71,15 +78,18 @@ const CheckoutForm = () => {
                 console.log('transaction id', paymentIntent.id);
                 setTranssactionId(paymentIntent.id);
 
-                // now save the payment history to the db
+                // save payment history to the db
 
                 const payment = {
                     email: user.email,
-                    price: totalPrice,
+                    Price: totalPrice,
                     transactionId: paymentIntent.id,
                     date: new Date(),
                     cartIds: cart.map(item => item._id),
                     menuItemIds: cart.map(item => item.menuId),
+                    cartTitle: cart.map(item => item.Title),
+                    cartName: cart.map(item => item.Name),
+                    cartImage: cart.map(item => item.Image),
                     status: 'pending'
                 }
 
@@ -115,7 +125,8 @@ const CheckoutForm = () => {
             </button>
             <p className='text-error'>{error}</p>
             {
-                transactionId && <p className='text-green-500 font-bold'> Your transaction id : {transactionId}</p>
+                transactionId && <p className='text-green-500 font-bold'> Your transaction id : {transactionId}</p> && navigate('/dashboard/enrollClass')
+                
             }
         </form>
     );

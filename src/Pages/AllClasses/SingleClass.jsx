@@ -39,7 +39,9 @@ const SingleClass = () => {
                             icon: "success",
                             button: "Aww yiss!",
                             timer: 1500
+                            
                         });
+                        navigate('/dashboard/payment')
                         refetch();
                     }
                 })
@@ -81,11 +83,13 @@ const SingleClass = () => {
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
                     <button
                         onClick={() => handleAddToCart(classes)}
-                        className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Add Cart</button>
+                        className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Add Cart
 
-                    <div className="mt-5">
+                        </button>
+
+                    {/* <div className="mt-5">
                         <p>Note: For Payment Confirm go to --</p> <Link to="/dashboard/cart"> <button className="btn">My Cart</button></Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

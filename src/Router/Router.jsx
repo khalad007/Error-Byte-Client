@@ -16,6 +16,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import PrivateRoutes from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import MyEnrollClass from "../Pages/Dashboard/MyEnrollClass/MyEnrollClass";
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             {
                 path: 'studentHome',
                 element: <StudentHome></StudentHome>
+            },
+            {
+                path: 'enrollClass',
+                element: <MyEnrollClass></MyEnrollClass>
             },
             {
                 path: 'review',

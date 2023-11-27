@@ -31,7 +31,6 @@ const Navbar = () => {
                         <div tabIndex={0} className="mt-3 z-[100] card card-compact dropdown-content w-52 bg-base-100 shadow ">
                             <div className="card-body">
                                 <span className="font-bold text-lg">{cart.length}</span>
-                                <span className="text-info">Subtotal: $999</span>
                                 <div className="card-actions">
                                     <Link to="/dashboard/cart">
                                         <button className="btn btn-primary btn-block">View cart</button>

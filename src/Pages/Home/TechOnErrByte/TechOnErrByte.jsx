@@ -71,9 +71,9 @@ const TechOnErrByte = () => {
 
                     : statuss[0]?.role === 'teacher' ?
 
-                    <div> <h1 className="text-5xl text-center my-5 font-bold">Congrates..! You are a <span className="text-[#007CFF]">Teacher Now</span></h1></div>
+                        <div> <h1 className="text-5xl text-center my-10 font-bold">Congrates..! You are a <span className="text-[#007CFF]">Teacher Now</span></h1></div>
 
-                         :
+                        :
                         statuss[0]?.role === 'reject' ?
 
                             // this is rejected 
@@ -178,7 +178,7 @@ const TechOnErrByte = () => {
                                         <div className="flex gap-5">
                                             <div className="form-control w-full ">
                                                 <label className="label">
-                                                    <span className="label-text font-bold text-base">Class Title</span>
+                                                    <span className="label-text font-bold text-base">Title</span>
                                                 </label>
                                                 <input {...register('title', { required: true })} type="text" placeholder="Class Title" className="input input-bordered w-full " />
 

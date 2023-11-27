@@ -18,6 +18,7 @@ import PrivateRoutes from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyEnrollClass from "../Pages/Dashboard/MyEnrollClass/MyEnrollClass";
 import TeacherRequest from "../Pages/Dashboard/TeacherRequest/TeacherRequest";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 
 export const router = createBrowserRouter([
     {
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
             {
                 path: 'teacherRequest',
                 element: <TeacherRequest></TeacherRequest>
+            },
+            {
+                path: 'addClass',
+                element: <AddClass></AddClass>
             }
         ]
     }

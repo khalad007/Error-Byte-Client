@@ -17,6 +17,7 @@ import Cart from "../Pages/Dashboard/Cart/Cart";
 import PrivateRoutes from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyEnrollClass from "../Pages/Dashboard/MyEnrollClass/MyEnrollClass";
+import TeacherRequest from "../Pages/Dashboard/TeacherRequest/TeacherRequest";
 
 export const router = createBrowserRouter([
     {
@@ -38,7 +39,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'techOnErrByte',
-                element: <PrivateRoutes><TechOnErrByte></TechOnErrByte></PrivateRoutes>
+                element: <PrivateRoutes><TechOnErrByte></TechOnErrByte></PrivateRoutes>,
+                
             },
             {
                 path: 'allClasses',
@@ -78,6 +80,10 @@ export const router = createBrowserRouter([
             {
                 path: 'users',
                 element: <AllUsers></AllUsers>
+            },
+            {
+                path: 'teacherRequest',
+                element: <TeacherRequest></TeacherRequest>
             }
         ]
     }

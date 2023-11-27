@@ -44,7 +44,6 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             console.log('current user', currentUser)
-            setLoading(false);
             if (currentUser) {
                 //get token and store client 
                 const userInfo = { email: currentUser.email }
@@ -62,13 +61,13 @@ const AuthProvider = ({ children }) => {
                 setLoading(false)  //this and above false one given for login related problem , i didn't get the error 
             }
 
-            setLoading(false)
+            // setLoading(false)
         })
 
         return () => {
             return unsubscribe();
         }
-    }, [axiosPublic])
+    })
 
     const authInfo = {
         user,

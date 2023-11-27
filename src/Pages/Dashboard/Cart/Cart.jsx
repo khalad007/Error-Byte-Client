@@ -5,6 +5,9 @@ import useCart from '../../../Hooks/useCart';
 const Cart = () => {
     const [cart, refetch] = useCart();
     const totalPrice = cart.reduce((total, item) => total + item.Price, 0)
+    if(totalPrice < 1){
+        refetch();
+    }
     
     return (
         <div>
@@ -29,6 +32,7 @@ const Cart = () => {
                     </div>
                 </div>)
             }
+            
         </div>
     );
 };

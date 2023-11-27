@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'techOnErrByte',
-                element: <TechOnErrByte></TechOnErrByte>
+                element: <PrivateRoutes><TechOnErrByte></TechOnErrByte></PrivateRoutes>
             },
             {
                 path: 'allClasses',
@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+        element: <Dashboard></Dashboard>,
         children: [
             {
                 path: 'studentHome',

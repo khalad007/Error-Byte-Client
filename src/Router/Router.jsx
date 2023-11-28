@@ -22,6 +22,9 @@ import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import UpdateClass from "../Pages/Dashboard/UpdateClass/UpdateClass";
 import MyClassDetails from "../Pages/Dashboard/MyClassDetails/MyClassDetails";
+import AllClassForAdmin from "../Pages/Dashboard/AllClassForAdmin/AllClassForAdmin";
+import SeeProgress from "../Pages/Dashboard/SeeProgress/SeeProgress";
+import MyEnrollAss from "../Pages/Dashboard/MyEnrollClass/MyEnrollAss";
 
 export const router = createBrowserRouter([
     {
@@ -105,6 +108,18 @@ export const router = createBrowserRouter([
             {
                 path: 'myClass/:id',
                 element: <MyClassDetails></MyClassDetails>
+            },
+            {
+                path: 'allClassForAdmin',
+                element: <AllClassForAdmin></AllClassForAdmin>
+            },
+            {
+                path: 'seeProgress/:id',
+                element: <SeeProgress></SeeProgress>
+            },
+            {
+                path: 'enrollClass/:id',
+                element: <MyEnrollAss></MyEnrollAss>
             }
         ]
     }

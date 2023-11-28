@@ -109,7 +109,7 @@ const UpdateClass = () => {
                     <textarea {...register('ShortDescription', { required: true })} defaultValue={ShortDescription} className="textarea textarea-bordered h-24" placeholder="Recipe Details"></textarea>
 
                 </div>
-                <button className="btn my-4 bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Add Class</button>
+                <button className="btn my-4 bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Update Class</button>
             </form>
         </div>
     </div>

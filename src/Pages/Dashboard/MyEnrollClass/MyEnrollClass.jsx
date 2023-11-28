@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const MyEnrollClass = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
     const { data: payments = [] } = useQuery({
-        queryKey: ['payments', user.email],
+        queryKey: ['payments', user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/payments/${user.email}`);
             return res.data;
@@ -27,7 +28,7 @@ const MyEnrollClass = () => {
                                     <br />
                                     <strong>Name:</strong> {payment.cartName[i]}
                                     <br />
-                                    <img src={payment.cartImage[i]} alt={`Enrolled Class ${index + 1}`} />
+                                    <img className="h-56 w-full" src={payment.cartImage[i]} alt={`Enrolled Class ${index + 1}`} />
                                     <hr />
                                 </li>
                             ))}
@@ -36,6 +37,10 @@ const MyEnrollClass = () => {
                         <p>Price: ${payment.Price}</p>
                         <p>Date: {new Date(payment.date).toLocaleString()}</p>
                     </div>
+                    <Link to={`/dashboard/enrollClass/${payment._id}`}>
+                        <button className="btn btn-wide bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">
+                            Continue</button>
+                    </Link>
                 </div>
             ))}
         </div>

@@ -19,6 +19,9 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyEnrollClass from "../Pages/Dashboard/MyEnrollClass/MyEnrollClass";
 import TeacherRequest from "../Pages/Dashboard/TeacherRequest/TeacherRequest";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
+import MyClass from "../Pages/Dashboard/MyClass/MyClass";
+import UpdateClass from "../Pages/Dashboard/UpdateClass/UpdateClass";
+import MyClassDetails from "../Pages/Dashboard/MyClassDetails/MyClassDetails";
 
 export const router = createBrowserRouter([
     {
@@ -89,6 +92,19 @@ export const router = createBrowserRouter([
             {
                 path: 'addClass',
                 element: <AddClass></AddClass>
+            },
+            {
+                path: 'myClass',
+                element: <MyClass></MyClass>
+            },
+            {
+                path: 'updateItem/:id',
+                element: <UpdateClass></UpdateClass>,
+                loader: ({params}) => fetch(`http://localhost:5000/myClss/${params.id}`)
+            },
+            {
+                path: 'myClass/:id',
+                element: <MyClassDetails></MyClassDetails>
             }
         ]
     }

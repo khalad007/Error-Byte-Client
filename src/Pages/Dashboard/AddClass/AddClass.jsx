@@ -7,6 +7,7 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 
 const AddClass = () => {
@@ -14,13 +15,14 @@ const AddClass = () => {
     const axiosSecure = useAxiosSecure()
     // const axiosPublic = useAxiosPublic()
     const { user } = useAuth();
+    const navigate = useNavigate();
     console.log(user)
 
     // get user 
     const onSubmit = async (data) => {
         console.log(data)
 
-        // send menu item to the server wiht img 
+        // send menu item to the server
         const addClasses = {
             Name: data.Name,
             ShortDescription: data.ShortDescription,
@@ -28,6 +30,7 @@ const AddClass = () => {
             Price: data.Price,
             Image: data.Image,
             email: user.email,
+            statuss: 'pending'
             
 
         }
@@ -43,6 +46,7 @@ const AddClass = () => {
                 timer: 1500,
                 button: "Aww yiss!",
             });
+            navigate('/dashboard/myClass')
         }
     }
 
@@ -108,7 +112,7 @@ const AddClass = () => {
                         <textarea {...register('ShortDescription', { required: true })} className="textarea textarea-bordered h-24" placeholder="Recipe Details"></textarea>
 
                     </div>
-                    <button className="btn my-4 bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Apply Again</button>
+                    <button className="btn my-4 bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Add Class</button>
                 </form>
             </div>
         </div>

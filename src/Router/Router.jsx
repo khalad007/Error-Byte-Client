@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/singleClassDetails/:id',
-                element: <SingleClass></SingleClass>,
+                element: <PrivateRoutes><SingleClass></SingleClass></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/allClasses/${params.id}`)
             },
         ]

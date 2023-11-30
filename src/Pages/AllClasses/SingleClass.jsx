@@ -83,7 +83,7 @@ const SingleClass = () => {
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
                     <button
                         onClick={() => handleAddToCart(classes)}
-                        className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Add Cart
+                        className="btn bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">Pay
 
                         </button>
 

@@ -40,11 +40,13 @@ const TechOnErrByte = () => {
             //success
             swal({
                 title: "Good job!",
-                text: "Added item success!",
+                text: "Request success!",
                 icon: "success",
                 timer: 1500,
                 button: "Aww yiss!",
             });
+            window.location.reload();
+            
         }
     }
     // const axiosSecuree = useAxiosSecure();

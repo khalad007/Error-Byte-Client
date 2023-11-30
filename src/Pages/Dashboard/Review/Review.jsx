@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import ReactStars from "react-rating-stars-component";
+import React from "react";
+import { render } from "react-dom";
 
 
 const Review = () => {
@@ -11,6 +14,15 @@ const Review = () => {
     const { user } = useContext(AuthContext);
 
     const [allClasses, setAllClasses] = useState([]);
+    
+    const [newRating, setNewRating] = useState(0);
+
+  
+  
+    const ratingChanged = (rating) => {
+      console.log(rating);
+      setNewRating(rating); 
+    };
 
     useEffect(() => {
         fetch('http://localhost:5000/allClasses')
@@ -26,6 +38,8 @@ const Review = () => {
 
     const onSubmit = async (data) => {
         console.log(data)
+      
+
 
         // send menu item to the server
         const addClasses = {
@@ -35,7 +49,7 @@ const Review = () => {
             Price: data.Price,
             Image: data.Image,
             email: user.email,
-            rating: 4
+            rating: newRating
 
 
         }
@@ -51,8 +65,10 @@ const Review = () => {
                 timer: 1500,
                 button: "Aww yiss!",
             });
-            
+
         }
+
+
     }
 
     // get data from classes (all classes for taking there id and give a review )
@@ -69,11 +85,10 @@ const Review = () => {
                 <h1 className="text-5xl text-center my-5 font-bold">Give A <span className="text-[#007CFF]">Review</span></h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-5">
-                        {/* <label className="label">
+                        <label className="label">
                             <span className="label-text font-bold text-base">Name</span>
-                        </label> */}
-                        
-                        <input {...register('name', { required: true })} type="hidden" defaultValue={user?.displayName} className="input input-bordered w-full " />
+                        </label>
+                        <input {...register('name', { required: true })} type="text" defaultValue={user?.displayName} className="input input-bordered w-full " />
 
                     </div>
 
@@ -82,7 +97,6 @@ const Review = () => {
                             <label className="label">
                                 <span className="label-text font-bold text-base">Class Title</span>
                             </label>
-                            
                             <select {...register("title", { required: true })} className="select select-bordered w-full">
                                 <option value="" disabled selected>
                                     Select Class Title
@@ -93,10 +107,10 @@ const Review = () => {
 
                         {/* price */}
                         <div className="form-control w-full ">
-                            {/* <label className="label">
+                            <label className="label">
                                 <span className="label-text font-bold text-base">Photo URL</span>
-                            </label> */}
-                            <input {...register('photoURL', { required: true })} type="hidden" defaultValue={user?.photoURL} placeholder="PhotoURL" className="input input-bordered w-full " />
+                            </label>
+                            <input {...register('photoURL', { required: true })} defaultValue={user?.photoURL} placeholder="PhotoURL" className="input input-bordered w-full " />
 
                         </div>
                     </div>
@@ -107,6 +121,19 @@ const Review = () => {
                         </label>
                         <textarea {...register('details', { required: true })} className="textarea textarea-bordered h-24" placeholder="Details"></textarea>
 
+                    </div>
+
+                    <div className="form-control w-full my-5">
+                        <label className="label">
+                            <span className="label-text font-bold text-base">Rating</span>
+                        </label>
+
+                        <ReactStars
+                            count={5}
+                            onChange={ratingChanged}
+                            size={24}
+                            activeColor="#ffd700"
+                        />,
                     </div>
 
 

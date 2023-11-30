@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useLoaderData } from "react-router-dom";
+import { Rating } from "@smastrom/react-rating";
 
 
 const SeeProgress = () => {
-    const { Title } = useLoaderData();
+    const { Title, Name, email } = useLoaderData();
     console.log(Title)
 
     const axiosSecure = useAxiosSecure();
@@ -19,26 +20,37 @@ const SeeProgress = () => {
     console.log(clsForAdmin)
 
     const selectedClass = clsForAdmin.find((itm) => itm.Title === Title);
-    
+
 
     return (
         <div>
             <h1 className='text-4xl font-bold text-center my-6'>See Progress</h1>
-            {/* {
-                clsForAdmin.map(itm => <h1 key={itm._id}>{itm.Title}</h1>)
-            } */}
+
 
             {selectedClass ? (
-                // Render the class data
-                <div>
-                    <h1>{selectedClass.Title}</h1>
-                    {/* Render other class data here */}
+
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className="card-title">Title : {selectedClass.Title}!</h2>
+                            <p>Name : {selectedClass.name}</p>
+                            <p>Review : {selectedClass.details}</p>
+                            <Rating
+                                style={{ maxWidth: 180 }}
+                                value={selectedClass.rating}
+                                readOnly
+                            />
+                        </div>
+                    </div>
+
+
                 </div>
             ) : (
-                // If no matching class is found
+
                 <p>There are no reviews for this class.</p>
             )}
-            
+
         </div>
     );
 };

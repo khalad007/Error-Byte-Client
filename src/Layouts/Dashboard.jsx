@@ -4,16 +4,34 @@ import { FaBook, FaCalendarMinus, FaCartShopping, FaHouse, FaList, FaMoneyBillTr
 import useAdmin from "../Hooks/useAdmin";
 // import useAdmin from "../Hooks/useAdmin";
 import { MdPayments } from "react-icons/md";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "../Hooks/useAuth";
 const Dashboard = () => {
 
+    const { user } = useAuth();
     const [isAdmin] = useAdmin();
-    const isTeacher = true;
+    // const isTeacher = false;
+    const axiosSecure = useAxiosSecure();
+
+    const { data: statuss = [] } = useQuery({
+        queryKey: ['statuss', user?.email],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/myApplyStatus/${user.email}`);
+            return res.data;
+        }
+    });
+    console.log(statuss)
+    console.log(user)
+    // console.log(statuss[0]["name"])
+    console.log(statuss[0]?.name);
+    console.log(statuss[0]?.role);
     return (
         <>
-        <div>
-        </div>
+            <div>
+            </div>
             <div className="flex">
-                
+
                 <div className="w-60 min-h-screen bg-gradient-to-r from-[#0155B7] to-[#007CFF] text-white">
                     <ul className="menu ">
                         {
@@ -28,23 +46,29 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/allClassForAdmin"><FaBook /> All Classes</NavLink></li>
                                 <li><NavLink to="/dashboard/users"><FaUsers /> All User's</NavLink></li>
 
+                                <span className="text-center mt-6 font-bold">Teacher Options</span>
+                                        <div className="divider"></div>
+
+                                        <li><NavLink to="/dashboard/teacherHome" ><FaHouse /> Teacher Home</NavLink></li>
+                                        <li><NavLink to="/dashboard/addClass" ><FaPen /> Add Class</NavLink></li>
+                                        <li><NavLink to="/dashboard/myClass" ><FaList /> My Class</NavLink></li>
+
                                 <span className="text-center mt-6 font-bold">User Options</span>
                                 <div className="divider"></div>
 
                                 <li><NavLink to="/dashboard/studentHome" ><FaHouse /> User Home</NavLink></li>
-                                <li><NavLink to="/dashboard/cart"><FaCartShopping></FaCartShopping> My cart</NavLink></li>
-                                <li><NavLink to="/dashboard/review"><FaRankingStar /> Review</NavLink></li>
-                                <li><NavLink to="/dashboard/paymentHistory"><FaCalendarMinus /> Payment History</NavLink></li>
-                                <li><NavLink to="/dashboard/payment"><FaMoneyBillTransfer /> Payment</NavLink></li>
-                                <li><NavLink to="/dashboard/booking"><FaBook /> My Bookings</NavLink></li>
+                                        <li><NavLink to="/dashboard/review"><FaRankingStar /> Review</NavLink></li>
+                                        <li><NavLink to="/dashboard/payment"><MdPayments /> Payment</NavLink></li>
+                                        <li><NavLink to="/dashboard/enrollClass"><FaBook /> My Enroll Class</NavLink></li>
                             </>
-                                : isTeacher ?
+                                : 
+                                statuss[0]?.role === 'teacher'  ?
 
                                     <>
                                         <span className="text-center mt-6 font-bold">Teacher Options</span>
                                         <div className="divider"></div>
 
-                                        <li><NavLink to="/dashboard/studentHome" ><FaHouse /> Teacher Home</NavLink></li>
+                                        <li><NavLink to="/dashboard/teacherHome" ><FaHouse /> Teacher Home</NavLink></li>
                                         <li><NavLink to="/dashboard/addClass" ><FaPen /> Add Class</NavLink></li>
                                         <li><NavLink to="/dashboard/myClass" ><FaList /> My Class</NavLink></li>
 
@@ -58,13 +82,12 @@ const Dashboard = () => {
                                         <li><NavLink to="/dashboard/payment"><MdPayments /> Payment</NavLink></li>
                                         <li><NavLink to="/dashboard/enrollClass"><FaBook /> My Enroll Class</NavLink></li>
                                     </>
-                                    :
+                                    : 
                                     <>
                                         <span className="text-center mt-6 font-bold">User Options</span>
                                         <div className="divider"></div>
 
                                         <li><NavLink to="/dashboard/studentHome" ><FaHouse /> User Home</NavLink></li>
-                                        <li><NavLink to="/dashboard/cart"><FaCartShopping></FaCartShopping> My cart</NavLink></li>
                                         <li><NavLink to="/dashboard/review"><FaRankingStar /> Review</NavLink></li>
                                         <li><NavLink to="/dashboard/payment"><MdPayments /> Payment</NavLink></li>
                                         <li><NavLink to="/dashboard/enrollClass"><FaBook /> My Enroll Class</NavLink></li>
@@ -72,12 +95,12 @@ const Dashboard = () => {
                         }
                         {/* shared                       */}
                         <div className="divider"></div>
-                        <li className="my-10"><NavLink to="/">Home</NavLink></li>
+                        <li className="my-5"><NavLink to="/">Home</NavLink></li>
                     </ul>
 
                 </div>
                 <div className="flex-1 p-11">
-                {/* <h1 className="text-4xl font-bold">Welcome To the Another World</h1> */}
+                    {/* <h1 className="text-4xl font-bold">Welcome To the Another World</h1> */}
 
                     <Outlet></Outlet>
                 </div>

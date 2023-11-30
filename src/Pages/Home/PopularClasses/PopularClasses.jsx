@@ -16,7 +16,9 @@ const PopularClasses = () => {
     console.log(classes)
     return (
         <section>
-            
+            <h1 className="text-5xl text-center my-7 font-bold">Popular <span className="text-[#007CFF]">Classes's</span></h1>
+
+
             <Swiper
                 slidesPerView={4}
                 spaceBetween={30}
@@ -28,9 +30,9 @@ const PopularClasses = () => {
                 className="mySwiper mb-16"
             >
                 {
-                    classes.map(classs => <SwiperSlide key={classs._id}><img src={classs.Image} alt="" /> 
-                    <h3 className='text-2xl  text-center'>{classs.Title}
-                    </h3></SwiperSlide>)
+                    classes.map(classs => <SwiperSlide key={classs._id}><img className='w-72 h-96' src={classs.Image} alt="" />
+                        <h3 className='text-xl font-semibold mt-14  text-center'>{classs.Title}
+                        </h3></SwiperSlide>)
                 }
             </Swiper>
         </section>

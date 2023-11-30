@@ -102,7 +102,7 @@ const AllClassForAdmin = () => {
 
     return (
         <div>
-            <h1 className='text-4xl font-bold text-center '>All Pending Classes from <span className='text-[#007CFF]'>Teacher's</span></h1>
+            <h1 className='text-4xl font-bold text-center my-10 '>All Classes from <span className='text-red-600'>Real</span> <span className='text-[#007CFF]'>Teacher's</span></h1>
 
             <div className="overflow-x-auto">
                 <table className="table">

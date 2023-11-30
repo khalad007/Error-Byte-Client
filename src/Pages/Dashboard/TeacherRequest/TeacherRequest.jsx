@@ -86,9 +86,9 @@ const TeacherRequest = () => {
         <div>
             {/* <SectionTitle subHeading={} heading={}></SectionTitle> */}
 
-            <div>
-                <h2>All users</h2>
-                <h2>Totoal user : {users.length}</h2>
+            <div className="flex justify-between items-center">
+                <h2 className="text-3xl font-bold">All users</h2>
+                <h2 className="text-3xl font-bold">Totoal user : {users.length}</h2>
             </div>
             <div>
                 <div className="overflow-x-auto">

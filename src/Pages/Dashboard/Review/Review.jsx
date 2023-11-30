@@ -69,10 +69,11 @@ const Review = () => {
                 <h1 className="text-5xl text-center my-5 font-bold">Give A <span className="text-[#007CFF]">Review</span></h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-5">
-                        <label className="label">
+                        {/* <label className="label">
                             <span className="label-text font-bold text-base">Name</span>
-                        </label>
-                        <input {...register('name', { required: true })} type="text" defaultValue={user?.displayName} className="input input-bordered w-full " />
+                        </label> */}
+                        
+                        <input {...register('name', { required: true })} type="hidden" defaultValue={user?.displayName} className="input input-bordered w-full " />
 
                     </div>
 
@@ -81,6 +82,7 @@ const Review = () => {
                             <label className="label">
                                 <span className="label-text font-bold text-base">Class Title</span>
                             </label>
+                            
                             <select {...register("title", { required: true })} className="select select-bordered w-full">
                                 <option value="" disabled selected>
                                     Select Class Title
@@ -91,10 +93,10 @@ const Review = () => {
 
                         {/* price */}
                         <div className="form-control w-full ">
-                            <label className="label">
+                            {/* <label className="label">
                                 <span className="label-text font-bold text-base">Photo URL</span>
-                            </label>
-                            <input {...register('photoURL', { required: true })} defaultValue={user?.photoURL} placeholder="PhotoURL" className="input input-bordered w-full " />
+                            </label> */}
+                            <input {...register('photoURL', { required: true })} type="hidden" defaultValue={user?.photoURL} placeholder="PhotoURL" className="input input-bordered w-full " />
 
                         </div>
                     </div>

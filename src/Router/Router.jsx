@@ -25,6 +25,9 @@ import MyClassDetails from "../Pages/Dashboard/MyClassDetails/MyClassDetails";
 import AllClassForAdmin from "../Pages/Dashboard/AllClassForAdmin/AllClassForAdmin";
 import SeeProgress from "../Pages/Dashboard/SeeProgress/SeeProgress";
 import MyEnrollAss from "../Pages/Dashboard/MyEnrollClass/MyEnrollAss";
+import TeacherHome from "../Pages/Dashboard/TeacherHome/TeacherHome";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import Dashboard2 from "../Pages/Dashboard/Dashboard/Dashboard2";
 
 export const router = createBrowserRouter([
     {
@@ -67,6 +70,14 @@ export const router = createBrowserRouter([
             {
                 path: 'studentHome',
                 element: <StudentHome></StudentHome>
+            },
+            {
+                path: 'teacherHome',
+                element: <TeacherHome></TeacherHome>
+            },
+            {
+                path: 'adminHome',
+                element: <AdminHome></AdminHome>
             },
             {
                 path: 'enrollClass',
@@ -115,11 +126,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'seeProgress/:id',
-                element: <SeeProgress></SeeProgress>
+                element: <SeeProgress></SeeProgress>,
+                loader: ({params}) => fetch(`http://localhost:5000/progressTitleMatch/${params.id}`)
             },
             {
                 path: 'enrollClass/:id',
                 element: <MyEnrollAss></MyEnrollAss>
+            },
+            {
+                path: 'dashboard2',
+                element: <Dashboard2></Dashboard2>
             }
         ]
     }

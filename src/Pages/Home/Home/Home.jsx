@@ -3,6 +3,7 @@ import BecameTeacher from "../BecameTeacher/BecameTeacher";
 import Collaborators from "../Collaborators/Collaborators";
 import ExtraSectionOne from "../ExtraSection1/ExtraSectionOne";
 import ExtraSectionTwo from "../ExtraSection2/ExtraSectionTwo";
+import Faq from "../Faq/Faq";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import Review2 from "../Review2/Review2";
 import Stats from "../Stats/Stats";
@@ -27,6 +28,9 @@ const Home = () => {
             <ExtraSectionTwo></ExtraSectionTwo>
             <h1 className="text-5xl text-center my-10 font-bold">Business with <span className="text-[#007CFF]">us</span></h1>
             <ExtraSectionOne></ExtraSectionOne>
+            <h1 className="text-5xl text-center my-10 font-bold">Frequently Asked <span className="text-[#007CFF]">Questions</span></h1>
+            <Faq></Faq>
+            <div className="mt-10"></div>
         </div>
     );
 };

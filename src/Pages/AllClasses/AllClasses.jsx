@@ -7,7 +7,7 @@ const AllClasses = () => {
     const [allClasses, setAllClasses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allClasses')
+        fetch('https://twelfth-assignment-server-steel.vercel.app/allClasses')
             .then(res => res.json())
             .then(data => {
                 setAllClasses(data);

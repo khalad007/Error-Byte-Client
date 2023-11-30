@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
             {
                 path: '/singleClassDetails/:id',
                 element: <PrivateRoutes><SingleClass></SingleClass></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/allClasses/${params.id}`)
+                loader: ({ params }) => fetch(`https://twelfth-assignment-server-steel.vercel.app/allClasses/${params.id}`)
             },
         ]
     },
@@ -114,7 +114,7 @@ export const router = createBrowserRouter([
             {
                 path: 'updateItem/:id',
                 element: <UpdateClass></UpdateClass>,
-                loader: ({params}) => fetch(`http://localhost:5000/myClss/${params.id}`)
+                loader: ({params}) => fetch(`https://twelfth-assignment-server-steel.vercel.app/myClss/${params.id}`)
             },
             {
                 path: 'myClass/:id',
@@ -127,7 +127,7 @@ export const router = createBrowserRouter([
             {
                 path: 'seeProgress/:id',
                 element: <SeeProgress></SeeProgress>,
-                loader: ({params}) => fetch(`http://localhost:5000/progressTitleMatch/${params.id}`)
+                loader: ({params}) => fetch(`https://twelfth-assignment-server-steel.vercel.app/progressTitleMatch/${params.id}`)
             },
             {
                 path: 'enrollClass/:id',

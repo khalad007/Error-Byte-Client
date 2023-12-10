@@ -33,14 +33,14 @@ const SingleClass = () => {
                 .then(res => {
                     console.log(res.data)
                     if (res.data.insertedId) {
-                        swal({
-                            title: "Good job!",
-                            text: "You added the class to the cart!",
-                            icon: "success",
-                            button: "Aww yiss!",
-                            timer: 1500
+                        // swal({
+                        //     title: "Good job!",
+                        //     text: "You added the class to the cart!",
+                        //     icon: "success",
+                        //     button: "Aww yiss!",
+                        //     timer: 1500
                             
-                        });
+                        // });
                         navigate('/dashboard/payment')
                         refetch();
                     }

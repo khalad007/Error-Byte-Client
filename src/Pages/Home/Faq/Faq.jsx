@@ -16,7 +16,7 @@ const Faq = () => {
                     </AccordionSummary>
                     <AccordionDetails>
                         <Typography>
-                            A: To sign up for courses, click on the "Sign Up" button on the top right corner of the homepage. Follow the prompts to create an account, and then you can browse and enroll in courses.
+                            A:: To sign up for courses, click on the "Sign Up" button on the top right corner of the homepage. Follow the prompts to create an account, and then you can browse and enroll in courses.
                         </Typography>
                     </AccordionDetails>
                 </Accordion>

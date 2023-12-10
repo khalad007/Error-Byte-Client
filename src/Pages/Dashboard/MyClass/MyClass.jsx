@@ -66,14 +66,9 @@ const MyClass = () => {
                         {
                             myClss.map(myCls => <tr key={myCls._id}>
                                 <td>
-                                    {
-                                        myCls.statuss === 'pending' ? <button onClick={() => handleDeleteClass(myCls)} className="btn btn-square btn-outline text-red-600">
-                                            <FaTrash></FaTrash>
-                                        </button> :
-                                            <button disabled onClick={() => handleDeleteClass(myCls)} className="btn btn-square btn-outline text-red-600">
+                                            <button onClick={() => handleDeleteClass(myCls)} className="btn btn-square btn-outline text-red-600">
                                                 <FaTrash></FaTrash>
                                             </button>
-                                    }
                                 </td>
                                 <td>
                                     <div className="flex items-center gap-3">
